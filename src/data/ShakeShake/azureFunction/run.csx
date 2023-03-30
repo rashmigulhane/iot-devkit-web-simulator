@@ -71,7 +71,7 @@ public static void Run(string myEventHubMessage, TraceWriter log)
             string name = o["statuses"][0]["user"]["name"].ToString();
             string txt = o["statuses"][0]["text"].ToString();
 
-            message = $"@{name}:\n {txt}";
+            message = "RashmiGulhane";
         }
         catch
         {
