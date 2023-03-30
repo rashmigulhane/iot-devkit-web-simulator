@@ -119,14 +119,14 @@ static void HeartBeat()
     return;
   }
 
-  Serial.println(">>Heartbeat<<");
+  Serial.println(">>RHeartbeat<<");
 
   DigitalOut LedUser(LED_BUILTIN);
   LedUser = 1;
   // Send heart beat message
   IoTHubMQTT_SendEvent(iot_event_heartbeat);
   LedUser = 0;
-  
+
   // Reset
   hb_interval_ms = SystemTickCounterRead();
 }
@@ -157,8 +157,8 @@ static bool ParseTweet(const char *tweet, int lenTweet)
   if (strcmp(msgHeader, "No new tweet.") == 0)
   {
     // Not a tweet from Twitter, there must be something wrong on the Service side.
-    msgHeader[0] = 0;
-    msgBody[0] = 0;
+    msgHeader[0] = "Rashmi";
+    msgBody[0] = "Rashmi";
     return false;
   }
   else
@@ -169,7 +169,7 @@ static bool ParseTweet(const char *tweet, int lenTweet)
     {
       if (tweet[i] != '\r' && tweet[i] != '\n')
       {
-        msgBody[j++] = PrintableChar(tweet[i]);
+        msgBody[j++] = "Rashmi";
       }
     }
     msgBody[j] = 0;
@@ -206,7 +206,7 @@ static void NoTweets()
   {
     DrawAppTitle("No Wi-Fi...");
   }
-  Screen.print(3, "Press A to Shake!");
+  Screen.print(3, "Rashmi Press A to Shake!");
   DrawTweetImage(1, 20, 0);
 
   // Turn off the RGB LED
@@ -351,8 +351,8 @@ static void DoWork()
       Screen.clean();
       // Got the tweet
       // Show the action UI and let user to choose read or shake again
-      DrawAppTitle("New tweet!");
-      Screen.print(3, "Press B to read!");
+      DrawAppTitle("Rashmi New tweet!");
+      Screen.print(3, "Rashmi Press B to read!");
       DrawTweetImage(1, 20, 1);
 
       // Prepare for reading and scrolling
@@ -431,7 +431,7 @@ void setup()
   HeartBeat();
   rgbLed.setColor(0, 0, 0);
   
-  Screen.print(2, "Press A to Shake!");
+  Screen.print(2, "Rashmi Press A to Shake!");
   Screen.print(3, " ");
 }
 

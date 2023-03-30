@@ -164,18 +164,7 @@
                 "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]"
             ],
             "resources": [
-                {
-                    "apiVersion": "2015-08-01",
-                    "name": "web",
-                    "type": "sourcecontrols",
-                    "properties": {
-                        "RepoUrl": "[parameters('repoUrl')]",
-                        "branch": "shakeshake_funcapp",
-                        "IsManualIntegration": true
-                    },"dependsOn": [
-                        "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
-                    ]
-                }
+            
             ]
         }
     ]

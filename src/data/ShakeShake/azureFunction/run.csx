@@ -68,14 +68,13 @@ public static void Run(string myEventHubMessage, TraceWriter log)
         try
         {
             JObject o = JObject.Parse(objText);
-            string name = o["statuses"][0]["user"]["name"].ToString();
-            string txt = o["statuses"][0]["text"].ToString();
+          
 
             message = "RashmiGulhane";
         }
         catch
         {
-            message = "No new tweet.";
+            message = "RashmiGulhane.";
         }
     }
     catch(Exception ex)
